@@ -11,6 +11,12 @@ public class Tupla {
         this.numeroAtributos = numeroAtributos;
         this.dados = new ArrayList<>();
     }
+
+    public int getNumeroAtributos() {
+        return numeroAtributos;
+    }
     
-    
+    public String showDado(int index){
+        return this.dados.get(index).toString();
+    }
 }

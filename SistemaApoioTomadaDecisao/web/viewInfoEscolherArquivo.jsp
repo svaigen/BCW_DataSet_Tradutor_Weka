@@ -5,7 +5,7 @@
 </p>
 <hr>
 <p>Progresso:</p>
-<div class="progress">
-    <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="3" style="width: 0%;">
+<div class="progress backgroundWhite">
+    <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="3" style="width: 25%;">
     </div>
 </div>

@@ -30,6 +30,30 @@ public class Relacao {
         }
         return descricao;
     }
+
+    public String getRotulo() {
+        return rotulo;
+    }
+
+    public ArrayList<Atributo> getAtributos() {
+        return atributos;
+    }
     
+    public Tupla getTupla(int index){
+        return this.tuplas.get(index);
+    }
+
+    public ArrayList<Tupla> getTuplas() {
+        return tuplas;
+    }
+
+    public void setRotulo(String rotulo) {
+        this.rotulo = rotulo;
+    }
     
+    public void updateAtributo(int index, String rotulo){
+        Atributo a = this.atributos.get(index);
+        a.setRotulo(rotulo);
+        this.atributos.set(index, a);
+    }
 }

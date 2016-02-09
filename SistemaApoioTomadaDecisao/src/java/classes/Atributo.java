@@ -36,4 +36,8 @@ public class Atributo {
         return tipoAtributo;
     }
 
+    public void setRotulo(String rotulo) {
+        this.rotulo = rotulo;
+    }
+
 }

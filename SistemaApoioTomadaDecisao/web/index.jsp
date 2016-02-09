@@ -1,6 +1,10 @@
+<%@page import="classes.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
-    <% String passo = (String) request.getAttribute("passo"); %>
+    <% Integer passo = (Integer) request.getAttribute("passo");
+        Relacao relacao = (Relacao) session.getAttribute("relacao");
+        String arqEntrada = (String) session.getAttribute("arqEntrada");
+    %>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,19 +19,55 @@
                 <h1 class="text-center">Sistema de Apoio à Tomada de Decisão</h1>
                 <hr>
             </div>
+            <%if (passo != null) {%>
+            <div class="row">
+                <p><strong>Informações</strong></p>
+                <p><strong>Arquivo de entrada:</strong> <%=arqEntrada%>
+                    <strong>Número de atributos:</strong> <%=relacao.getAtributos().size()%>
+                    <strong>Número de tuplas:</strong> <%=relacao.getTuplas().size()%>
+                </p>
+            </div>
+            <hr>
+            <%}%>
             <div class="row">
                 <div class="well col-sm-6">
                     <div class="container">
-                        <% if (passo == null){%>
-                            <%@include file="viewEscolherArquivo.jsp"%>
-                        <%}%>
+                        <% if (passo == null) {%>
+                        <%@include file="viewEscolherArquivo.jsp"%>
+                        <%} else {
+                            switch (passo) {
+                                case 1:
+                        %>
+                        <%@include file="viewEscolherArquivo.jsp"%>
+                        <%break;
+                            case 2:%>
+                        <%@include file="viewNominarAtributos.jsp"%>
+                        <%break;
+                            case 3:%>
+                        <%@include file="viewEscolherAtributos.jsp"%>
+                        <%break;
+                                }
+                            }%>
                     </div>
                 </div>
                 <div class="col-sm-6" style="padding: 0px 30px;">                    
                     <div class="row">                        
-                        <%if (passo == null){%>
+                        <% if (passo == null) {%>
                         <%@include file="viewInfoEscolherArquivo.jsp"%>
-                        <%}%>
+                        <%} else {
+                            switch (passo) {
+                                case 1:
+                        %>
+                        <%@include file="viewInfoEscolherArquivo.jsp"%>
+                        <%break;
+                            case 2:%>
+                        <%@include file="viewInfoNominarAtributos.jsp"%>
+                        <%break;
+                            case 3:%>
+                        <%@include file="viewInfoEscolherAtributos.jsp"%>
+                        <%break;
+                                }
+                            }%>
                     </div>
 
                 </div>

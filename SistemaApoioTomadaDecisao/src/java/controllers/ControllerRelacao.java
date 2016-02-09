@@ -6,12 +6,8 @@
 package controllers;
 
 import classes.Relacao;
-import classes.Utils;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import java.util.Map;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,16 +15,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import upload.Upload;
 
 /**
  *
  * @author 'Alisson
  */
-@WebServlet(name = "ControllerPagina", urlPatterns = {"/arquivo"})
-public class ControllerArquivo extends HttpServlet {
+@WebServlet(name = "ControllerRelacao", urlPatterns = {"/relacao"})
+public class ControllerRelacao extends HttpServlet {
+
     RequestDispatcher rd;
     HttpSession session;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -46,10 +43,10 @@ public class ControllerArquivo extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ControllerPagina</title>");
+            out.println("<title>Servlet ControllerRelacao</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ControllerPagina at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ControllerRelacao at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -82,29 +79,16 @@ public class ControllerArquivo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         session = request.getSession();
-        String diretorio = "/files";
-        String realPath = getServletContext().getRealPath(diretorio);
-        Upload upload = new Upload(realPath);
-        List list = upload.processRequest(request);
-        Map<String, String> map = upload.getFormValues(list);
-        String action = map.get("action");
-        String fileName = map.get("file-upload");
-        switch (action) {
-            case "escolheArquivo":
-                System.out.println(realPath+File.separator+fileName);
-                new File(realPath+File.separator+fileName);
-                String textoArquivo = null;
-                Relacao relacao;
-                try {
-                    textoArquivo = Utils.lerArquivo(realPath+File.separator+fileName);
-                    //System.out.println(textoArquivo);
-                } catch (IOException ex) {
-                    System.err.println("Erro ao ler o arquivo!");
+        Relacao relacao = (Relacao) session.getAttribute("relacao");
+        String action = request.getParameter("action");
+        switch(action){
+            case "nominar":
+                relacao.setRotulo(request.getParameter("relacao"));
+                for(int i=0; i<relacao.getAtributos().size(); i++){
+                    relacao.updateAtributo(i, request.getParameter("atributo"+i));
                 }
-                relacao = Utils.tabulaDados(textoArquivo);
-                session.setAttribute("arqEntrada", fileName);
                 session.setAttribute("relacao", relacao);
-                request.setAttribute("passo", 2);
+                request.setAttribute("passo", 3);
                 rd = request.getRequestDispatcher("index.jsp");
                 rd.forward(request, response);
                 break;
