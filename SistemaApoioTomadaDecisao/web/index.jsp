@@ -81,5 +81,8 @@
                 </div>
             </div>
         </footer>
+        <script src="js/jquery-2.2.0.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/validaForm.js"></script>
     </body>
 </html>

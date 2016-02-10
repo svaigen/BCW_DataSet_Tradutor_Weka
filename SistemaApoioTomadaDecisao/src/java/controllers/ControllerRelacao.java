@@ -6,6 +6,7 @@
 package controllers;
 
 import classes.Relacao;
+import classes.Utils;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -91,6 +92,25 @@ public class ControllerRelacao extends HttpServlet {
                 request.setAttribute("passo", 3);
                 rd = request.getRequestDispatcher("index.jsp");
                 rd.forward(request, response);
+                break;
+            case "escolher":
+                Relacao relTreinamento = new Relacao(relacao.getRotulo());
+                Relacao relDecisao = new Relacao(relacao.getRotulo());
+                int atributos[] = new int[relacao.getAtributos().size()];
+                for (int i = 0; i < atributos.length; i++) {
+                    switch(request.getParameter(""+i)){ //i é referente ao nome do radiogroup de cada atributo
+                        case "treino":
+                            atributos[i] = Utils.ATRIBUTO_TREINO;
+                            break;
+                        case "decisao":
+                            atributos[i] = Utils.ATRIBUTO_DECISAO;
+                            break;
+                        case "excluir":
+                            atributos[i] = Utils.ATRIBUTO_REMOVIDO;
+                            break;
+                    }
+                }
+                Utils.geraRelacoesTreinamentoClassificacao(relacao,relTreinamento,relDecisao,atributos);               
                 break;
         }
     }

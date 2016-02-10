@@ -1,10 +1,19 @@
 <%@page import="classes.Tupla" %>
 <%t = relacao.getTupla(0);%>
-<h4>Terceiro passo: Escolher os atributos a serem processados</h4>
+<h4>Terceiro passo: Classificar os níveis de treinamento, classificação e utilidade dos atributos</h4>
 <p>
-    Como em toda análise, pode haver dados que não são necessários para o processamento.
-    Portanto, nessa etapa, você deve manter selecionado apenas os atributos que julgar pertinentes
-    para o processamento a ser realizado.
+    Nessa etapa você deve indicar qual a porcentagem da base de dados que será utilizada para treinamento e
+    para classificação. É importante lembrar que ambas devem completar 100%, ou seja, caso seja informado
+    70% para treinamento, os outros 30% serão para classificação.
+</p>
+<p>
+    Quanto aos atributos, deve-se marcar qual a sua utilidade:
+<ul>
+    <li>Treino: Dados utilizados para o algoritmo de treinamento;</li>
+    <li>Decisão: Dado utilizado para a classificação após o treinamento. Apenas um atributo
+    pode estar marcado como de decisão.</li>
+    <li>Excluir: Excluir o atributo do processamento.</li>
+</ul>
 </p>
 
 <hr>
@@ -24,10 +33,10 @@
     </tr>
     <%        
         for(int i=0; i<t.getNumeroAtributos(); i++){%>
-        <tr>
-            <td><%=relacao.getAtributos().get(i).getRotulo()%></td>
-            <td><%=t.showDado(i) %></td>
-        </tr>  
-        <%}
+    <tr>
+        <td><%=relacao.getAtributos().get(i).getRotulo()%></td>
+        <td><%=t.showDado(i) %></td>
+    </tr>  
+    <%}
     %>
 </table>

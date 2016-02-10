@@ -1,6 +1,5 @@
 package classes;
 
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,8 +7,13 @@ import classes.Atributo;
 import classes.Dado;
 import classes.Relacao;
 import classes.Tupla;
+import java.util.Collections;
 
 public class Utils {
+
+    public static final int ATRIBUTO_REMOVIDO = 1;
+    public static final int ATRIBUTO_TREINO = 2;
+    public static final int ATRIBUTO_DECISAO = 3;
 
     public static String lerArquivo(String caminho) throws IOException {
         BufferedReader br = criarBufferedReader(caminho);
@@ -76,7 +80,7 @@ public class Utils {
                     break;
             }
             t.dados.add(d);
-            r.atributos.add(a);            
+            r.atributos.add(a);
         }
         r.tuplas.add(t);
     }
@@ -85,9 +89,24 @@ public class Utils {
         if (dado.contains(".")) {
             return Atributo.TIPO_FLOAT;
         }
-        if (dado.matches("[0-9]")){
+        if (dado.matches("[0-9]")) {
             return Atributo.TIPO_INT;
-        } 
+        }
         return Atributo.TIPO_STRING;
+    }
+
+    public static void geraRelacoesTreinamentoClassificacao(Relacao relacao, Relacao relTreinamento, Relacao relDecisao, int[] atributos, int porcentagemTreinamento, int porcentagemClassificacao) {
+        int totalTuplasTreinamento = relacao.getTuplas().size() / porcentagemTreinamento;
+        int totalTuplasClassificacao = relacao.getTuplas().size() - totalTuplasTreinamento;
+        Collections.shuffle(relacao.tuplas);
+        for (int i = 0; i < atributos.length; i++) {
+            switch (i) {
+                case ATRIBUTO_DECISAO:
+                    
+                    break;
+                case ATRIBUTO_TREINO:
+                    break;
+            }
+        }
     }
 }
