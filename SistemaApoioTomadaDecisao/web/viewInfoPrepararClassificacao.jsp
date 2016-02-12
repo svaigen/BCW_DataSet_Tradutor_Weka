@@ -10,7 +10,7 @@
 <p>
     Quanto aos atributos, deve-se marcar qual a sua utilidade:
 <ul>
-    <li>Treino: Dados utilizados para o algoritmo de treinamento;</li>
+    <li>Geral: Dados utilizados no geral para o algoritmo no treinamento e na classificação;</li>
     <li>Decisão: Dado utilizado para a classificação após o treinamento. Apenas um atributo
     pode estar marcado como de decisão.</li>
     <li>Excluir: Excluir o atributo do processamento.</li>

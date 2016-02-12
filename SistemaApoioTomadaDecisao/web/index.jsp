@@ -44,9 +44,11 @@
                         <%@include file="viewNominarAtributos.jsp"%>
                         <%break;
                             case 3:%>
-                            <%@include file="viewPrepararClassificacao.jsp"%>
+                        <%@include file="viewPrepararClassificacao.jsp"%>
                         <%break;
-                                }
+                            case 4:%>
+                        <%@include file="viewFinalizado.jsp"%>
+                        <%}
                             }%>
                     </div>
                 </div>
@@ -64,9 +66,11 @@
                         <%@include file="viewInfoNominarAtributos.jsp"%>
                         <%break;
                             case 3:%>
-                            <%@include file="viewInfoPrepararClassificacao.jsp"%>
+                        <%@include file="viewInfoPrepararClassificacao.jsp"%>
                         <%break;
-                                }
+                            case 4:%>
+                        <%@include file="viewInfoFinalizado.jsp"%>
+                        <%}
                             }%>
                     </div>
 

@@ -21,9 +21,10 @@
         %>
     </div>
     <div class="form-group">
+        <a href="relacao?p=arquivo" class="btn btn-danger">Voltar ao passo anterior</a>
         <button type="submit" name="action" value="nominar"
                 class="btn btn-primary">
             Enviar
-        </button>
+        </button>        
     </div>
 </form>

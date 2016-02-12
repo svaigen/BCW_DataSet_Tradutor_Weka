@@ -2,9 +2,9 @@
     <div class="form-group">
         <label>Selecione os algoritmos a serem processados:</label>
         <div class="row">
-            <div class="col-sm-5 checkbox-inline">
-                <input type="checkbox" name="arvDec" />Árvore de Decisão
-                <input type="checkbox" name="perceptron" />Perceptron Multilayer
+            <div class="col-sm-5">
+                <input type="checkbox" name="arvDec" class="checkbox-inline"/>Árvore de Decisão
+                <input type="checkbox" name="perceptron" class="checkbox-inline"/>Perceptron Multilayer
             </div>
         </div>
     </div>
@@ -33,7 +33,7 @@
                 <table class="table table-responsive table-striped">
                     <tr>
                         <th>Atributo</th>
-                        <th>Treino</th>
+                        <th>Geral</th>
                         <th>Decisão</th>
                         <th>Excluir</th>
                     </tr>
@@ -60,6 +60,7 @@
         </div>
     </div>    
     <div class="form-group">
+        <a href="relacao?p=nominar" class="btn btn-danger">Voltar ao passo anterior</a>
         <button type="submit" name="action" value="escolher"
                 class="btn btn-primary">
             Enviar
