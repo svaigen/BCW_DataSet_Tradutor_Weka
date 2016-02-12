@@ -7,6 +7,7 @@ package controllers;
 
 import classes.Relacao;
 import classes.Utils;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -82,12 +83,12 @@ public class ControllerRelacao extends HttpServlet {
         session = request.getSession();
         Relacao relacao = (Relacao) session.getAttribute("relacao");
         String action = request.getParameter("action");
-        switch(action){
+        switch (action) {
             case "nominar":
                 relacao.setRotulo(request.getParameter("relacao"));
-                for(int i=0; i<relacao.getAtributos().size(); i++){
-                    relacao.updateAtributo(i, request.getParameter("atributo"+i));
-                }
+                for (int i = 0; i < relacao.getAtributos().size(); i++) {
+                 relacao.updateAtributo(i, request.getParameter("atributo" + i));
+                 }
                 session.setAttribute("relacao", relacao);
                 request.setAttribute("passo", 3);
                 rd = request.getRequestDispatcher("index.jsp");
@@ -96,22 +97,38 @@ public class ControllerRelacao extends HttpServlet {
             case "escolher":
                 Relacao relTreinamento = new Relacao(relacao.getRotulo());
                 Relacao relDecisao = new Relacao(relacao.getRotulo());
+                int porcentagemTreinamento = Integer.parseInt(request.getParameter("porcTrein"));
+                int porcentagemClassificacao = Integer.parseInt(request.getParameter("porcClass"));
                 int atributos[] = new int[relacao.getAtributos().size()];
-                for (int i = 0; i < atributos.length; i++) {
-                    switch(request.getParameter(""+i)){ //i é referente ao nome do radiogroup de cada atributo
-                        case "treino":
-                            atributos[i] = Utils.ATRIBUTO_TREINO;
-                            break;
-                        case "decisao":
-                            atributos[i] = Utils.ATRIBUTO_DECISAO;
-                            break;
-                        case "excluir":
-                            atributos[i] = Utils.ATRIBUTO_REMOVIDO;
-                            break;
-                    }
-                }
-                Utils.geraRelacoesTreinamentoClassificacao(relacao,relTreinamento,relDecisao,atributos);               
+                classificaAtributos(atributos, request);
+
+                Utils.geraRelacoesTreinamentoClassificacao(relacao, relTreinamento, relDecisao, atributos, porcentagemTreinamento, porcentagemClassificacao);
+
+                String diretorio = "/files";
+                String realPath = getServletContext().getRealPath(diretorio);
+                String caminhoArquivoTreinamento = realPath + File.separator + "treinamento_" + (String) session.getAttribute("arqEntrada") + ".arff";
+                String caminhoArquivoClassificacao = realPath + File.separator + "classificacao_" + (String) session.getAttribute("arqEntrada") + ".arff";
+                Utils.geraArff(atributos, relTreinamento, caminhoArquivoTreinamento);
+                Utils.geraArff(atributos, relDecisao, caminhoArquivoClassificacao);
+                System.out.println(caminhoArquivoTreinamento);
+                System.out.println(caminhoArquivoClassificacao);
                 break;
+        }
+    }
+
+    public void classificaAtributos(int[] atributos, HttpServletRequest request) {
+        for (int i = 0; i < atributos.length; i++) {
+            switch (request.getParameter("" + i)) { //i é referente ao nome do radiogroup de cada atributo
+                case "treino":
+                    atributos[i] = Utils.ATRIBUTO_GERAL;
+                    break;
+                case "decisao":
+                    atributos[i] = Utils.ATRIBUTO_DECISAO;
+                    break;
+                case "excluir":
+                    atributos[i] = Utils.ATRIBUTO_REMOVIDO;
+                    break;
+            }
         }
     }
 

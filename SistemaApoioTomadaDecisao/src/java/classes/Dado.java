@@ -31,6 +31,10 @@ public class Dado {
         return str;
     }
 
+    public void setStr(String str) {
+        this.str = str;
+    }
+
     @Override
     public String toString() {
         if (this.intt != Integer.MAX_VALUE) {
@@ -42,4 +46,13 @@ public class Dado {
         return this.str;
     }
 
+    public void setIntt(int intt) {
+        this.intt = intt;
+    }
+
+    public void setDoublee(double doublee) {
+        this.doublee = doublee;
+    }
+
+    
 }

@@ -1,9 +1,9 @@
-<form action="relacao" method="post">
+<form action="relacao" novalidate="novalidate" method="post">
     <div class="form-group">
         <label for="nome">Nome da relação</label>
         <div class="row">
             <div class="col-sm-5">
-                <input type="text" required="required" class="form-control" name="relacao" size="chars" placeholder="<%=relacao.getRotulo()%>"/>
+                <input type="text" required="required" class="form-control" name="relacao" size="chars" value="<%=relacao.getRotulo()%>"/>
             </div>            
         </div>        
     </div>
@@ -13,7 +13,7 @@
         <label for="<%="atributo" + (i + 1)%>">Atributo <%=i + 1%></label>
         <div class="row">
             <div class="col-sm-5">
-                <input type="text" required="required" class="form-control" name="atributo<%=i%>" size="chars" placeholder="atributo<%=i + 1%>"/>
+                <input type="text" required="required" class="form-control" name="atributo<%=i%>" size="chars" value="atributo<%=i + 1%>"/>
             </div>            
         </div>
         <br/>

@@ -22,6 +22,13 @@ public class Atributo {
     private int tipoAtributo;
     protected ArrayList<String> valoresPossiveis;
 
+
+    public ArrayList<String> getValoresPossiveis() {
+        return valoresPossiveis;
+    }
+
+    
+    
     public Atributo(String rotulo, int tipoAtributo) {
         this.rotulo = rotulo;
         valoresPossiveis = new ArrayList<>();
@@ -38,6 +45,10 @@ public class Atributo {
 
     public void setRotulo(String rotulo) {
         this.rotulo = rotulo;
+    }
+
+    public void setTipoAtributo(int tipoAtributo) {
+        this.tipoAtributo = tipoAtributo;
     }
 
 }

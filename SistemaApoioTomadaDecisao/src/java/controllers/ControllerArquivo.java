@@ -91,7 +91,6 @@ public class ControllerArquivo extends HttpServlet {
         String fileName = map.get("file-upload");
         switch (action) {
             case "escolheArquivo":
-                System.out.println(realPath+File.separator+fileName);
                 new File(realPath+File.separator+fileName);
                 String textoArquivo = null;
                 Relacao relacao;
