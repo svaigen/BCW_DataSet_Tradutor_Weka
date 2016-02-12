@@ -1,9 +1,10 @@
 <%@page import="classes.Tupla" %>
 <%t = relacao.getTupla(0);%>
-<h4>Terceiro passo: Classificar os níveis de treinamento, classificação e utilidade dos atributos</h4>
+<h4>Terceiro passo: Preparação dos dados e dos algoritmos realizados</h4>
 <p>
-    Nessa etapa você deve indicar qual a porcentagem da base de dados que será utilizada para treinamento e
-    para classificação. É importante lembrar que ambas devem completar 100%, ou seja, caso seja informado
+    Nessa etapa você deve indicar quais algoritmos deseja utilizar para a classificação da base de dados.
+    Também deve informar qual a porcentagem da base de dados que será utilizada para treinamento e
+    para classificação de cada algoritmo. É importante lembrar que ambas devem completar 100%, ou seja, caso seja informado
     70% para treinamento, os outros 30% serão para classificação.
 </p>
 <p>
@@ -19,7 +20,7 @@
 <hr>
 <p>Progresso:</p>
 <div class="progress backgroundWhite">
-    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="3" style="width: 50%;">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="3" style="width: 75%;">
     </div>
 </div>
 <hr>

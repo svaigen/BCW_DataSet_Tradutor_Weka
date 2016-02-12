@@ -91,6 +91,7 @@ public class Utils {
     }
 
     private static int tipoDado(String dado) {
+        
         if (dado.contains(".")) {
             return Atributo.TIPO_FLOAT;
         }

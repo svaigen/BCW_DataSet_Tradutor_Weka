@@ -1,6 +1,6 @@
 <h4>Primeiro passo: Informe o arquivo de entrada da base de dados</h4>
 <p>
-    Nessa etapa inicia, informe o arquivo que contém os dados que serão manipulados. Certifique-se
+    Nessa etapa inicial, informe o arquivo que contém os dados que serão manipulados. Certifique-se
     de que os dados estejam consistentes, como por exemplo, não tenha tuplas com dados faltantes.
 </p>
 <hr>

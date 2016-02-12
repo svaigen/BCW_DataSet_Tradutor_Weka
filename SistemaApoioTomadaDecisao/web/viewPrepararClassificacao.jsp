@@ -1,8 +1,17 @@
-<form action="relacao" method="post" onsubmit="return valida()">        
+<form action="relacao" method="post" onsubmit="return valida()">                
     <div class="form-group">
+        <label>Selecione os algoritmos a serem processados:</label>
+        <div class="row">
+            <div class="col-sm-5 checkbox-inline">
+                <input type="checkbox" name="arvDec" />Árvore de Decisão
+                <input type="checkbox" name="perceptron" />Perceptron Multilayer
+            </div>
+        </div>
+    </div>
+    <div class="form-group">       
         <label for="porcTrein">Treinamento (porcentagem)</label>
         <div class="row">
-            <div class="col-sm-5">                
+            <div class="col-sm-5">
                 <input id="trein" type="number" min="0" max="100" required="required" 
                        name="porcTrein" value="70" onchange="alteraTreinamento()" />
             </div>
@@ -17,6 +26,7 @@
             </div>
         </div>
     </div>
+
     <div class="form-group">    
         <div class="row">
             <div class="col-sm-5">

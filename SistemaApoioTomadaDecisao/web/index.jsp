@@ -16,7 +16,7 @@
     <body>
         <div class="well nonFooter">
             <div class="row">
-                <h1 class="text-center">Sistema de Apoio à Tomada de Decisão</h1>
+                <h1 class="text-center">Sistema de Apoio à Tomada de Decisão - Detecção de Câncer de Mama</h1>
                 <hr>
             </div>
             <%if (passo != null) {%>
@@ -44,7 +44,7 @@
                         <%@include file="viewNominarAtributos.jsp"%>
                         <%break;
                             case 3:%>
-                        <%@include file="viewEscolherAtributos.jsp"%>
+                            <%@include file="viewPrepararClassificacao.jsp"%>
                         <%break;
                                 }
                             }%>
@@ -64,7 +64,7 @@
                         <%@include file="viewInfoNominarAtributos.jsp"%>
                         <%break;
                             case 3:%>
-                        <%@include file="viewInfoEscolherAtributos.jsp"%>
+                            <%@include file="viewInfoPrepararClassificacao.jsp"%>
                         <%break;
                                 }
                             }%>

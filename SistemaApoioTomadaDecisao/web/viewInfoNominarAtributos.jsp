@@ -5,8 +5,9 @@
     Nessa etapa o seu arquivo de entrada já foi lido e aceito!
 </p>
 <p>
-    Agora, é necessário que você dê um nome para a sua relação e para todos os 
-    <%=t.getNumeroAtributos()%> atributos detectados.
+    Agora, é necessário que você nomeie a sua relação e os 
+    <%=t.getNumeroAtributos()%> atributos detectados. Por padrão, foram atribuídos nomes genéricos. Sinta-se
+    à vontade para alterá-los.
 </p>
 <p>
     Nominando os atributos e a relação, você conseguirá realizar uma análise de dados de maneira
