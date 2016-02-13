@@ -1,0 +1,52 @@
+Arvore de decisão gerada:
+J48 pruned tree
+------------------
+
+atributo26 = 185.2000_592.0800: B (143.0/4.0)
+atributo26 = 998.9600_1405.8400
+|   atributo29 = 0.0000_0.1252: B (18.0/1.0)
+|   atributo29 = 0.2504_0.3756: B (40.0/2.0)
+|   atributo29 = 0.3756_0.5008
+|   |   atributo7 = 0.0526_0.0637: B (0.0)
+|   |   atributo7 = 0.0748_0.0859: B (0.0)
+|   |   atributo7 = 0.0859_0.0969: B (6.0)
+|   |   atributo7 = 0.0969_0.1080: M (6.0/1.0)
+|   |   atributo7 = 0.1080_0.1191: B (10.0/3.0)
+|   |   atributo7 = 0.1191_0.1302: M (6.0/1.0)
+|   |   atributo7 = 0.1302_0.1412: B (0.0)
+|   |   atributo7 = 0.1412_0.1523: B (0.0)
+|   |   atributo7 = 0.1523_0.1634: B (0.0)
+|   |   atributo7 = 0.1634_0.1634: B (0.0)
+|   atributo29 = 0.5008_0.6260: M (10.0/4.0)
+|   atributo29 = 0.6260_0.7512: M (5.0)
+|   atributo29 = 0.7512_0.8764: M (8.0)
+|   atributo29 = 0.8764_1.0016: B (2.0/1.0)
+|   atributo29 = 1.0016_1.1268: M (1.0)
+|   atributo29 = 1.1268_1.2520: M (1.0)
+|   atributo29 = 1.2520_1.2520: M (1.0)
+atributo26 = 1405.8400_1812.7200: M (38.0/1.0)
+atributo26 = 1812.7200_2219.6000: M (23.0)
+atributo26 = 2219.6000_2626.4800: M (12.0)
+atributo26 = 2626.4800_3033.3600: M (5.0)
+atributo26 = 3033.3600_3440.2400: M (3.0)
+atributo26 = 3440.2400_3847.1200: M (3.0)
+atributo26 = 3847.1200_4254.0000: B (0.0)
+atributo26 = 4254.0000_4254.0000: M (1.0)
+
+Number of Leaves  : 	28
+
+Size of the tree : 	31
+
+--------Resultados Gerais de Classificação --------------
+
+Correctly Classified Instances         211               92.9515 %
+Incorrectly Classified Instances        16                7.0485 %
+Kappa statistic                          0.8516
+Mean absolute error                      0.1007
+Root mean squared error                  0.2459
+Relative absolute error                 21.5198 %
+Root relative squared error             50.801  %
+Coverage of cases (0.95 level)          96.4758 %
+Mean rel. region size (0.95 level)      59.6916 %
+Total Number of Instances              227     
+
