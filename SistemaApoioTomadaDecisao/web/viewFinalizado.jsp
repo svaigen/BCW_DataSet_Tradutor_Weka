@@ -16,6 +16,7 @@
 </div>        
 <div class="row"    >
     <div class="form-group">
+        <a href="relacao?p=preparar" class="btn btn-danger">Voltar ao passo anterior</a>
         <a href="relacao?p=arquivo" class="btn btn-success">Finalizar e voltar ao início</a>
 
     </div>

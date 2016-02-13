@@ -75,11 +75,11 @@ public class ControllerRelacao extends HttpServlet {
                 
             case "arquivo":                
                 session.removeAttribute("relacao");
+                session.removeAttribute("retreino");
                 request.setAttribute("passo", null);
                 rd = request.getRequestDispatcher("index.jsp");
                 rd.forward(request, response);
                 break;
-                
             case "nominar":
                 request.setAttribute("passo", 2);
                 rd = request.getRequestDispatcher("index.jsp");
@@ -87,6 +87,7 @@ public class ControllerRelacao extends HttpServlet {
                 break;
             case "preparar":
                 request.setAttribute("passo", 3);
+                session.setAttribute("retreino", true);
                 rd = request.getRequestDispatcher("index.jsp");
                 rd.forward(request, response);
                 break;
@@ -127,8 +128,9 @@ public class ControllerRelacao extends HttpServlet {
                 boolean algPerceptron = (request.getParameter("perceptron") != null);
                 int atributos[] = new int[relacao.getAtributos().size()];
                 classificaAtributos(atributos, request);
+                boolean retreino = (session.getAttribute("retreino")!=null?true:false);
 
-                Utils.geraRelacoesTreinamentoClassificacao(relacao, relTreinamento, relDecisao, atributos, porcentagemTreinamento, porcentagemClassificacao);
+                Utils.geraRelacoesTreinamentoClassificacao(relacao, relTreinamento, relDecisao, atributos, porcentagemTreinamento, porcentagemClassificacao, retreino);
 
                 String diretorio = "/files";
                 String realPath = getServletContext().getRealPath(diretorio);

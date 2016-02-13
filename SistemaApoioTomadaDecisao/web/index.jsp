@@ -16,7 +16,7 @@
     <body>
         <div class="well nonFooter">
             <div class="row">
-                <h1 class="text-center">Sistema de Apoio à Tomada de Decisão - Detecção de Câncer de Mama</h1>
+                <h1 class="text-center">Sistema de Apoio à Tomada de Decisão</h1>
                 <hr>
             </div>
             <%if (passo != null) {%>

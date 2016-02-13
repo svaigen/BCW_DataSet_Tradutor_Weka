@@ -3,7 +3,7 @@
         <label>Selecione os algoritmos a serem processados:</label>
         <div class="row">
             <div class="col-sm-5">
-                <input type="checkbox" name="arvDec" class="checkbox-inline"/>Árvore de Decisão
+                <input type="checkbox" name="arvDec" class="checkbox-inline"/>Árvore de Decisão J48
                 <input type="checkbox" name="perceptron" class="checkbox-inline"/>Perceptron Multilayer
             </div>
         </div>
